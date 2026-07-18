@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with custom credentials",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "businessName": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "phone": { "type": "string", "pattern": "^[0-9]{10}$" },
+        "password": { "type": "string", "minLength": 4, "maxLength": 100 },
+        "businessType": { "type": "string", "enum": ["Grocery Store", "Restaurant", "Medical Store", "Clothing Store"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "businessName", "phone", "password", "businessType", "createdAt"]
+    },
+    "UserBusinessData": {
+      "title": "UserBusinessData",
+      "description": "Full business state ledger backup for an MSME user",
+      "type": "object",
+      "properties": {
+        "userPhone": { "type": "string", "pattern": "^[0-9]{10}$" },
+        "cashInGalla": { "type": "number" },
+        "upiInGalla": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "users/{phone}": {
+      "schema": "User",
+      "description": "Collection of registered business user profiles"
+    },
+    "users_business_data/{phone}": {
+      "schema": "UserBusinessData",
+      "description": "Sync ledger containing user's customers, inventory, invoices, staff, etc."
+    }
+  }
+}

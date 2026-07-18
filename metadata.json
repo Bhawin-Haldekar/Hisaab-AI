@@ -1,0 +1,6 @@
+{
+  "name": "Hisaab AI - Bilingual Smart Ledger & Billing",
+  "description": "An easy-to-use, bilingual AI voice and OCR ledger assistant for Indian retail shops and MSMEs to manage GST billing, automated WhatsApp credit reminders, and cash drawer (Galla) tracking.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
